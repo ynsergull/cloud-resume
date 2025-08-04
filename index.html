@@ -1,1 +1,387 @@
-deneme gt 2 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yunus Ergül - Software Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#0f172a',
+            'card-bg': '#1e293b',
+            'accent': '#a855f7',
+            'light-text': '#e2e8f0',
+            'medium-text': '#94a3b8',
+            'dark-text': '#64748b',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-dark-bg text-medium-text">
+  <!-- Mobile Navigation -->
+  <!-- Language Switcher -->
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <div class="flex rounded-lg border border-accent overflow-hidden">
+      <button onclick="setLanguage('tr')" id="tr-btn" class="px-3 py-1 transition-colors" data-lang="tr">TR</button>
+      <button onclick="setLanguage('en')" id="en-btn" class="px-3 py-1 transition-colors" data-lang="en">EN</button>
+    </div>
+    <button id="menu-toggle" class="text-light-text lg:hidden">
+      <i class="fa-solid fa-bars text-2xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-dark-bg z-40 flex flex-col items-center justify-center space-y-8">
+    <button id="close-menu" class="absolute top-6 right-6 text-light-text">
+      <i class="fa-solid fa-xmark text-2xl"></i>
+    </button>
+    <a href="#about" class="nav-link text-2xl text-light-text font-medium" data-i18n="about">About</a>
+    <a href="#experience" class="nav-link text-2xl text-light-text font-medium" data-i18n="experience">Experience</a>
+    <a href="#projects" class="nav-link text-2xl text-light-text font-medium" data-i18n="projects">Projects</a>
+    <a href="#skills" class="nav-link text-2xl text-light-text font-medium" data-i18n="skills">Skills</a>
+    <a href="#education" class="nav-link text-2xl text-light-text font-medium" data-i18n="education">Education</a>
+  </div>
+
+  <!-- Left Sidebar -->
+  <div class="fixed left-0 top-0 h-full hidden lg:block w-24">
+    <div class="flex flex-col items-center h-full justify-end pb-12">
+      <div class="flex flex-col items-center space-y-6">
+        <a href="https://github.com/ynsergull" class="social-link text-slate-400 transition-all duration-300">
+          <i class="fa-brands fa-github text-2xl"></i>
+        </a>
+        <a href="https://linkedin.com/in/ynsergull" class="social-link text-slate-400 transition-all duration-300">
+          <i class="fa-brands fa-linkedin-in text-2xl"></i>
+        </a>
+        <a href="mailto:yunus.ergul7@outlook.com" class="social-link text-slate-400 transition-all duration-300">
+          <i class="fa-solid fa-envelope text-2xl"></i>
+        </a>
+      </div>
+      <div class="h-24 w-px bg-slate-600 mt-6"></div>
+    </div>
+  </div>
+
+  <!-- Right Sidebar (Navigation) -->
+  <div class="fixed right-10 top-0 h-full hidden lg:flex items-center">
+    <nav class="transform -rotate-90 origin-right flex space-x-8">
+      <a href="#about" class="nav-link relative text-light-text font-medium" data-i18n="about">About</a>
+      <a href="#experience" class="nav-link relative text-light-text font-medium" data-i18n="experience">Experience</a>
+      <a href="#projects" class="nav-link relative text-light-text font-medium" data-i18n="projects">Projects</a>
+      <a href="#skills" class="nav-link relative text-light-text font-medium" data-i18n="skills">Skills</a>
+      <a href="#education" class="nav-link relative text-light-text font-medium" data-i18n="education">Education</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto px-5 py-20 lg:py-32 lg:px-0">
+    <!-- Hero Section -->
+    <section id="about" class="mb-24 lg:mb-32">
+      <p class="text-accent mb-4" data-i18n="greeting">Hi, my name is</p>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-light-text mb-4">Yunus Ergül.</h1>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-400 mb-8" data-i18n="role">I build things for the web.</h2>
+      
+      <div class="max-w-2xl">
+        <p class="text-lg leading-relaxed mb-8" data-i18n="description">
+          I'm a software developer specializing in building web applications and RESTful APIs using PHP, Laravel, and MySQL. 
+          Currently, I'm focused on creating efficient, scalable solutions while continuously expanding my skills in 
+          cloud technologies and DevOps practices.
+        </p>
+        
+        <div class="flex flex-wrap gap-4 mb-12">
+          <div class="flex items-center">
+            <i class="fa-solid fa-location-dot text-accent mr-2"></i>
+            <span>Gaziosmanpasa/Istanbul</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fa-solid fa-envelope text-accent mr-2"></i>
+            <span>yunus.ergul7@outlook.com</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fa-solid fa-phone text-accent mr-2"></i>
+            <span>+905313084538</span>
+          </div>
+        </div>
+        
+        <a href="mailto:yunus.ergul7@outlook.com" class="inline-block border border-accent text-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-medium">
+          Get In Touch
+        </a>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="mb-24 lg:mb-32">
+      <h2 class="text-3xl font-bold text-light-text mb-12 section-title" data-i18n="experience">Experience</h2>
+      
+      <div class="space-y-12">
+        <!-- Delta Servis -->
+        <div class="experience-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-1">Software Developer</h3>
+              <p class="text-accent">Delta Servis</p>
+            </div>
+            <div class="mt-2 md:mt-0 text-dark-text">2023 - Present</div>
+          </div>
+          <ul class="space-y-2 pl-5 list-disc">
+            <li>Contributed to backend and frontend development of a complex in-house ERP system</li>
+            <li>Developed end-to-end backend services using Laravel, implementing RESTful APIs</li>
+            <li>Designed relational database schemas in MySQL and implemented optimized SQL queries</li>
+            <li>Focused on algorithm optimization and performance improvements</li>
+          </ul>
+        </div>
+        
+        <!-- Adregezgini -->
+        <div class="experience-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-1">Web Development Intern</h3>
+              <p class="text-accent">Adregezgini</p>
+            </div>
+            <div class="mt-2 md:mt-0 text-dark-text">2022</div>
+          </div>
+          <ul class="space-y-2 pl-5 list-disc">
+            <li>Developed an interactive Turkey map application for Google Ads keyword generation</li>
+            <li>Participated in both backend and frontend development of SEO-friendly corporate websites</li>
+            <li>Designed responsive and user-friendly web interfaces</li>
+          </ul>
+        </div>
+        
+        <!-- Czestochowa University -->
+        <div class="experience-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-1">Erasmus+ Intern</h3>
+              <p class="text-accent">Czestochowa University of Technology</p>
+            </div>
+            <div class="mt-2 md:mt-0 text-dark-text">2022</div>
+          </div>
+          <ul class="space-y-2 pl-5 list-disc">
+            <li>Modeled and analyzed oil and water flow in pipelines using Ansys simulation software</li>
+            <li>Prepared technical reports based on simulation results</li>
+            <li>Enhanced English communication skills in an international, multicultural team</li>
+          </ul>
+        </div>
+        
+        <!-- Ünsped -->
+        <div class="experience-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-1">Web Development Intern</h3>
+              <p class="text-accent">Ünsped</p>
+            </div>
+            <div class="mt-2 md:mt-0 text-dark-text">2021</div>
+          </div>
+          <ul class="space-y-2 pl-5 list-disc">
+            <li>Worked on web projects involving both frontend and backend development using ASP.NET MVC</li>
+            <li>Designed and managed databases with Entity Framework and SQL Server</li>
+            <li>Developed a parameter-based shipping cost calculation web page from scratch</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="mb-24 lg:mb-32">
+      <h2 class="text-3xl font-bold text-light-text mb-12 section-title" data-i18n="projects">Projects</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Cloud Resume Challenge -->
+        <div class="project-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-2">Cloud Resume Challenge</h3>
+              <p class="text-medium-text mb-4">
+                AWS servisleri kullanarak oluşturduğum cloud-native CV projesi. S3, CloudFront, Lambda ve DynamoDB kullanıldı.
+              </p>
+            </div>
+            <a href="https://github.com/ynsergull/cloud-resume" class="text-accent hover:text-purple-300 transition-colors">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">AWS Lambda</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">DynamoDB</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">CloudFront</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">S3</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">Route53</span>
+          </div>
+        </div>
+        
+        <!-- Sahlbinden API Integration -->
+        <div class="project-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-2">Sahlbinden API Integration</h3>
+              <p class="text-medium-text mb-4">
+                A backend integration project that automated product management, price calculation, order creation, and status updates.
+              </p>
+            </div>
+            <a href="#" class="text-accent hover:text-purple-300 transition-colors">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">PHP</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">Laravel</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">MySQL</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">RESTful API</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">Postman</span>
+          </div>
+        </div>
+        
+        <!-- Keyword Generation with Interactive Turkey Map -->
+        <div class="project-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-2">Keyword Generation with Interactive Turkey Map</h3>
+              <p class="text-medium-text mb-4">
+                A web-based project that allows users to interactively select provinces or districts and automatically generates keywords.
+              </p>
+            </div>
+            <a href="#" class="text-accent hover:text-purple-300 transition-colors">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">JavaScript</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">HTML</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">CSS</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">jQuery</span>
+          </div>
+        </div>
+        
+        <!-- Recipe Buddy Mobile Application -->
+        <div class="project-card bg-card-bg rounded-xl p-8 relative">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-light-text mb-2">Recipe Buddy Mobile Application</h3>
+              <p class="text-medium-text mb-4">
+                A mobile application that provides automatic recipe suggestions based on available ingredients using AI.
+              </p>
+            </div>
+            <a href="#" class="text-accent hover:text-purple-300 transition-colors">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">Flutter</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">Dart</span>
+            <span class="skill-badge px-3 py-1 rounded-full text-sm">Gemini AI API</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="mb-24 lg:mb-32">
+      <h2 class="text-3xl font-bold text-light-text mb-12 section-title" data-i18n="skills">Skills</h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">PHP</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">Laravel</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">jQuery</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">MySQL</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">JavaScript</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">RESTful API</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">Bootstrap</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">SQL Server</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">OOP</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">HTML</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">ASP.NET MVC</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">AJAX</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">cPanel</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">MVC</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">CSS</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">Python</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">Redis</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">Postman</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">Flutter</div>
+        <div class="skill-badge px-4 py-3 rounded-lg text-center">Git & GitHub</div>
+      </div>
+      
+      <!-- Languages -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold text-light-text mb-6">Languages</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-card-bg rounded-xl p-6">
+            <div class="flex justify-between items-center mb-3">
+              <span class="font-medium text-light-text">Turkish</span>
+              <span class="text-accent font-medium">Native</span>
+            </div>
+            <div class="w-full bg-slate-700 rounded-full h-2">
+              <div class="bg-accent h-2 rounded-full" style="width: 100%"></div>
+            </div>
+          </div>
+          <div class="bg-card-bg rounded-xl p-6">
+            <div class="flex justify-between items-center mb-3">
+              <span class="font-medium text-light-text">English</span>
+              <span class="text-accent font-medium">B2 Level</span>
+            </div>
+            <div class="w-full bg-slate-700 rounded-full h-2">
+              <div class="bg-accent h-2 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="mb-24 lg:mb-32">
+      <h2 class="text-3xl font-bold text-light-text mb-12 section-title" data-i18n="education">Education</h2>
+      
+      <div class="bg-card-bg rounded-xl p-8">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+          <div>
+            <h3 class="text-xl font-bold text-light-text mb-1">Computer Engineering (English)</h3>
+            <p class="text-accent">Manisa Celal Bayar University</p>
+          </div>
+          <div class="mt-2 md:mt-0 text-dark-text">2018 - 2024</div>
+        </div>
+        <p class="text-medium-text">
+          Graduated with a focus on software development and web technologies. Enhanced English communication skills 
+          through the English program and developed competence in working with diverse cultural backgrounds.
+        </p>
+        
+        <div class="mt-6">
+          <h4 class="font-bold text-light-text mb-3">International Experience:</h4>
+          <ul class="space-y-2 pl-5 list-disc">
+            <li>Erasmus+ Internship at Czestochowa University of Technology, Poland</li>
+            <li>Work and Travel Program in the United States (10 months)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-dark-text border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-5">
+      <p>Designed & Built by Yunus Ergül</p>
+      <div class="mt-4 flex justify-center space-x-6 lg:hidden">
+        <a href="https://github.com/ynsergull" class="social-link text-slate-400 transition-all duration-300">
+          <i class="fa-brands fa-github text-xl"></i>
+        </a>
+        <a href="https://linkedin.com/in/ynsergull" class="social-link text-slate-400 transition-all duration-300">
+          <i class="fa-brands fa-linkedin-in text-xl"></i>
+        </a>
+        <a href="mailto:yunus.ergul7@outlook.com" class="social-link text-slate-400 transition-all duration-300">
+          <i class="fa-solid fa-envelope text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
