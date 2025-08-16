@@ -6,7 +6,8 @@ function updateContent(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
-        const translation = translations[lang][key];
+        // translations may be defined in a separate file; guard access
+        const translation = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang][key] : null;
         if (translation) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translation;
@@ -21,6 +22,7 @@ function updateContent(lang) {
 function updateLanguageButtons(lang) {
     const trBtn = document.getElementById('tr-btn');
     const enBtn = document.getElementById('en-btn');
+    if (!trBtn || !enBtn) return; // guard
     
     if (lang === 'tr') {
         trBtn.classList.add('bg-accent', 'text-light-text');
@@ -38,48 +40,86 @@ function updateLanguageButtons(lang) {
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
-    updateContent(lang);
+    try {
+        updateContent(lang);
+    } catch (e) {
+        console.error('Error updating translations:', e);
+    }
 }
 
-// Initialize language
+// Visitor counter functionality
+async function incrementVisitorCount() {
+  try {
+    const url = "https://alxca7khnm6i2oynvdlggw56u4.apigateway.eu-frankfurt-1.oci.customer-oci.com/counter";
+    const response = await fetch(url, { method: "GET", mode: 'cors' });
+    if (!response.ok) {
+      console.warn('Counter fetch returned non-OK status', response.status);
+      return null;
+    }
+    const data = await response.json();
+    const el = document.getElementById('visitor-count');
+    if (el && data && typeof data.count !== 'undefined') {
+      el.textContent = data.count;
+    }
+    console.log('Visitor count:', data);
+    return data;
+  } catch (error) {
+    console.error('Error incrementing/fetching visitor count:', error);
+    return null;
+  }
+}
+
+// Initialize language and counter safely
 document.addEventListener('DOMContentLoaded', () => {
-    updateContent(currentLang);
-    document.getElementById('lang-text').textContent = currentLang.toUpperCase();
+    // update content if translations exist; protect against missing translations file
+    try {
+        if (typeof translations !== 'undefined') {
+            updateContent(currentLang);
+            const langTextEl = document.getElementById('lang-text');
+            if (langTextEl) langTextEl.textContent = currentLang.toUpperCase();
+        } else {
+            // translations not loaded; still set language label if present
+            const langTextEl = document.getElementById('lang-text');
+            if (langTextEl) langTextEl.textContent = currentLang.toUpperCase();
+        }
+    } catch (e) {
+        console.error('Error during initial updateContent:', e);
+    }
+
+    // Ensure visitor counter runs even if previous code threw
+    incrementVisitorCount();
+    // optional: refresh every 30s so repeated visits from same page increment/check
+    setInterval(incrementVisitorCount, 30000);
 });
 
-// Mobile menu toggle
+// Mobile menu toggle - guard elements exist
 const menuToggle = document.getElementById('menu-toggle');
 const closeMenu = document.getElementById('close-menu');
 const mobileMenu = document.getElementById('mobile-menu');
 
-menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.add('open');
-  document.body.style.overflow = 'hidden';
-});
+if (menuToggle && closeMenu && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
 
-closeMenu.addEventListener('click', () => {
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-});
-
-// Close menu when clicking on links
-const mobileLinks = document.querySelectorAll('#mobile-menu a');
-mobileLinks.forEach(link => {
-  link.addEventListener('click', () => {
+  closeMenu.addEventListener('click', () => {
     mobileMenu.classList.remove('open');
     document.body.style.overflow = '';
   });
-});
 
-// Visitor counter simulation
+  // Close menu when clicking on links
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// Visitor counter element reference (may be null if not present)
 const visitorCount = document.getElementById('visitor-count');
-let count = 1284;
-
-// Simulate visitor count increasing
-setInterval(() => {
-  count++;
-  visitorCount.textContent = count;
-}, 10000);
 
 // Highlight active nav link on scroll
 const sections = document.querySelectorAll('section');
@@ -87,19 +127,16 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
   let current = '';
-  
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
-    
     if (pageYOffset >= (sectionTop - 300)) {
       current = section.getAttribute('id');
     }
   });
-  
   navLinks.forEach(link => {
     link.classList.remove('active-nav');
-    if (link.getAttribute('href').substring(1) === current) {
+    if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
       link.classList.add('active-nav');
     }
   });
