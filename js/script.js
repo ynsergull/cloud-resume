@@ -50,14 +50,15 @@ function setLanguage(lang) {
 // Visitor counter functionality
 async function incrementVisitorCount() {
   try {
-    const url = "https://alxca7khnm6i2oynvdlggw56u4.apigateway.eu-frankfurt-1.oci.customer-oci.com/counter";
-    const response = await fetch(url, { method: "GET", mode: 'cors' });
+  const url = "https://alxca7khnm6i2oynvdlggw56u4.apigateway.eu-frankfurt-1.oci.customer-oci.com/counter";
+  const el = document.getElementById('visitor-count');
+  if (!el) { console.warn('visitor-count element not found'); return null; }
+  const response = await fetch(url, { method: "GET", mode: 'cors', cache: 'no-store' });
     if (!response.ok) {
       console.warn('Counter fetch returned non-OK status', response.status);
       return null;
     }
     const data = await response.json();
-    const el = document.getElementById('visitor-count');
     if (el && data && typeof data.count !== 'undefined') {
       el.textContent = data.count;
     }
@@ -86,10 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error during initial updateContent:', e);
     }
 
-    // Ensure visitor counter runs even if previous code threw
-    incrementVisitorCount();
-    // optional: refresh every 30s so repeated visits from same page increment/check
-    setInterval(incrementVisitorCount, 30000);
+  // Increment once on page load
+  incrementVisitorCount();
 });
 
 // Mobile menu toggle - guard elements exist
