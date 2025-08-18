@@ -43,7 +43,13 @@ def handler(ctx, data: io.BytesIO=None):
                 return response.Response(
                     ctx,
                     response_data=json.dumps({"ok": True, "count": cnt + 1}),
-                    headers={"Content-Type": "application/json"}
+                    headers={
+                        "Content-Type": "application/json",
+                        "Cache-Control": "no-store",
+                        "Access-Control-Allow-Origin": "https://www.yunusergul.com",
+                        "Access-Control-Allow-Methods": "GET,OPTIONS",
+                        "Access-Control-Allow-Headers": "content-type"
+                    }
                 )
             except oci.exceptions.ServiceError as e:
                 if e.status == 412:
@@ -52,12 +58,24 @@ def handler(ctx, data: io.BytesIO=None):
                 raise
         return response.Response(ctx, status_code=500,
             response_data=json.dumps({"ok": False, "error": "conflict"}),
-            headers={"Content-Type": "application/json"})
+            headers={
+                "Content-Type": "application/json",
+                "Cache-Control": "no-store",
+                "Access-Control-Allow-Origin": "https://www.yunusergul.com",
+                "Access-Control-Allow-Methods": "GET,OPTIONS",
+                "Access-Control-Allow-Headers": "content-type"
+            })
     except Exception as e:
         print("Unhandled exception:\n", traceback.format_exc())
         return response.Response(ctx, status_code=500,
             response_data=json.dumps({"ok": False, "error": str(e)}),
-            headers={"Content-Type": "application/json"})
+            headers={
+                "Content-Type": "application/json",
+                "Cache-Control": "no-store",
+                "Access-Control-Allow-Origin": "https://www.yunusergul.com",
+                "Access-Control-Allow-Methods": "GET,OPTIONS",
+                "Access-Control-Allow-Headers": "content-type"
+            })
 
 if __name__ == "__main__":
     import fdk
