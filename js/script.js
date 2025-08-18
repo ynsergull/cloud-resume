@@ -48,10 +48,12 @@ function setLanguage(lang) {
 }
 
 // Visitor counter functionality
+// Oracle API Gateway base (change here if gateway URL changes)
+const API_GATEWAY_BASE = "https://alxca7khnm6i2oynvdlggw56u4.apigateway.eu-frankfurt-1.oci.customer-oci.com";
 async function incrementVisitorCount() {
   try {
-  const url = "https://alxca7khnm6i2oynvdlggw56u4.apigateway.eu-frankfurt-1.oci.customer-oci.com/counter";
   const el = document.getElementById('visitor-count');
+  const url = `${API_GATEWAY_BASE}/counter`;
   if (!el) { console.warn('visitor-count element not found'); return null; }
   const response = await fetch(url, { method: "GET", mode: 'cors', cache: 'no-store' });
     if (!response.ok) {
