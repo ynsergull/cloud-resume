@@ -50,10 +50,32 @@ function setLanguage(lang) {
 // Visitor counter functionality
 // Oracle API Gateway base (change here if gateway URL changes)
 const API_GATEWAY_BASE = "https://alxca7khnm6i2oynvdlggw56u4.apigateway.eu-frankfurt-1.oci.customer-oci.com";
+
+// Generate/store a per-browser UUID to count uniques by browser (privacy-friendly)
+function getVisitorId() {
+  try {
+    const key = 'visitorId';
+    let id = localStorage.getItem(key);
+    if (!id) {
+      if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+        id = crypto.randomUUID();
+      } else {
+        id = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      }
+      localStorage.setItem(key, id);
+    }
+    return id;
+  } catch (e) {
+    // localStorage might be unavailable (privacy mode); fallback to per-load id
+    return 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+  }
+}
 async function incrementVisitorCount() {
   try {
   const el = document.getElementById('visitor-count');
-  const url = `${API_GATEWAY_BASE}/counter`;
+  const uniqueEl = document.getElementById('unique-count');
+  const vid = getVisitorId();
+  const url = `${API_GATEWAY_BASE}/counter?vid=${encodeURIComponent(vid)}`;
   if (!el) { console.warn('visitor-count element not found'); return null; }
   const response = await fetch(url, { method: "GET", mode: 'cors', cache: 'no-store' });
     if (!response.ok) {
@@ -63,6 +85,9 @@ async function incrementVisitorCount() {
     const data = await response.json();
     if (el && data && typeof data.count !== 'undefined') {
       el.textContent = data.count;
+    }
+    if (uniqueEl && data && typeof data.unique !== 'undefined') {
+      uniqueEl.textContent = data.unique;
     }
     console.log('Visitor count:', data);
     return data;
