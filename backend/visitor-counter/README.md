@@ -11,6 +11,8 @@ Python Oracle Function that tracks total pageviews and unique visitors (privacy-
 - `BUCKET` – Bucket name (default: cloud-resume-data)
 - `OBJECT` – Object key (default: counter.json)
 - `SALT` – Secret salt used to hash the browser-provided visitorId (default: "change-me"). Set a strong random value in Function Config.
+- `TOPIC_OCID` – OCI Notifications Topic OCID (for daily report emails)
+- `REPORT_TOKEN` – Shared secret token to authorize `/report` endpoint calls
 
 ## Concurrency Strategy
 1. GET object -> obtain current count + ETag.
@@ -24,7 +26,9 @@ fn invoke <your-app-name> visitor-counter
 (Use POST when via API Gateway.)
 
 ## API Gateway
-Create a deployment mapping GET /counter to this function. Frontend passes `?vid=<uuid>` (stable per-browser). CORS is enabled for `https://www.yunusergul.com`.
+Create deployments mapping to this function:
+- GET `/counter` – increments and returns counts; frontend passes `?vid=<uuid>`.
+- GET `/report` – sends an email with current JSON; requires `?token=${REPORT_TOKEN}`.
 
 ## Response JSON
 On success:
@@ -36,6 +40,9 @@ On success:
 }
 On error after retries:
 {"ok": false, "error": "conflict"}
+
+Report endpoint:
+{"ok": true, "report": true} on success.
 
 ## Stored Document Schema (counter.json)
 {
@@ -50,3 +57,26 @@ Older documents with only `{ "count": N }` are auto-migrated in-memory to the ne
 ## Notes
 - SALT should be treated as a secret and not checked into source control. Configure it in the Function's application config.
 - For very high traffic, consider switching from storing `seen` as a list to an approximate distinct counter (e.g., HyperLogLog) or partition by day.
+
+## IAM (Policies & Dynamic Group)
+If your Functions run in the root tenancy compartment, write tenancy-scoped policies. Example:
+
+- Dynamic Group (matching all functions in your compartment or tenancy):
+	- Rule example (tenancy-wide): `ALL {resource.type = 'fnfunc'}`
+
+- Policies (tenancy-level):
+	- `allow dynamic-group dg-cloud-resume to read object-family in tenancy`
+	- `allow dynamic-group dg-cloud-resume to use ons-topics in tenancy`
+
+If you prefer to scope to a specific compartment:
+	- `allow dynamic-group dg-cloud-resume to read object-family in compartment <compartment-name>`
+	- `allow dynamic-group dg-cloud-resume to use ons-topics in compartment <compartment-name>`
+
+Note: `use ons-topics` covers publishing messages to Notifications topics.
+
+## GitHub Actions (Daily Trigger)
+Add a workflow file `.github/workflows/daily-report.yml` in this repo with a scheduled run. Set repo secrets:
+- `REPORT_URL` – your API Gateway report URL, e.g. `https://<gw>/report`
+- `REPORT_TOKEN` – the same token you set in Function config
+
+The workflow will call `GET ${REPORT_URL}?token=${REPORT_TOKEN}` once per day to trigger the email.

@@ -1,0 +1,20 @@
+name: Daily resume stats email
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 09:00 TR (UTC+3) -> 06:00 UTC; adjust as needed
+  workflow_dispatch:
+jobs:
+  trigger-report:
+    runs-on: windows-latest
+    steps:
+      - name: Call report endpoint
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          if (-not ("${{ secrets.REPORT_URL }}")) { throw "Missing secret REPORT_URL" }
+          if (-not ("${{ secrets.REPORT_TOKEN }}")) { throw "Missing secret REPORT_TOKEN" }
+          $uri = "${{ secrets.REPORT_URL }}?token=${{ secrets.REPORT_TOKEN }}"
+          Write-Host "Calling $uri"
+          $resp = Invoke-WebRequest -Uri $uri -Method GET -UseBasicParsing
+          Write-Host "Status: $($resp.StatusCode)"
+          Write-Host "Body: $($resp.Content)"
