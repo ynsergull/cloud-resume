@@ -6,19 +6,8 @@ function updateContent(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
-        let translation = null;
-        
-        // Handle nested translations (e.g., "languageLevel.native")
-        if (key.includes('.')) {
-            const keys = key.split('.');
-            if (typeof translations !== 'undefined' && translations[lang]) {
-                translation = translations[lang][keys[0]] && translations[lang][keys[0]][keys[1]];
-            }
-        } else {
-            // Regular translations
-            translation = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang][key] : null;
-        }
-        
+        // translations may be defined in a separate file; guard access
+        const translation = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang][key] : null;
         if (translation) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translation;
@@ -157,11 +146,6 @@ if (menuToggle && closeMenu && mobileMenu) {
 
 // Visitor counter element reference (may be null if not present)
 const visitorCount = document.getElementById('visitor-count');
-
-// Initialize the page with the stored language on load
-document.addEventListener('DOMContentLoaded', function() {
-    updateContent(currentLang);
-});
 
 // Highlight active nav link on scroll
 const sections = document.querySelectorAll('section');
