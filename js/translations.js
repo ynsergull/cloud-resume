@@ -7,7 +7,7 @@ const translations = {
         'education': 'Education',
         'greeting': 'Hi, my name is',
         'role': 'I build things for the web.',
-        'description': "I am a Software Developer with over one year of professional experience in PHP, Laravel, and MySQL. My expertise focuses on developing RESTful API integrations for ERP systems, optimizing databases, and designing business process automations.  I am actively interested in Cloud (OCI) and DevOps practices and continuously develop my competencies in these areas through personal projects. I can work effectively in multicultural teams, supported by my English proficiency strengthened through international experiences.",
+        'description': "I am a Software Developer with professional experience in PHP, Laravel, and MySQL technologies. My expertise focuses on developing RESTful API integrations for ERP systems, optimizing databases, and designing business process automations.  I am actively interested in Cloud (OCI) and DevOps practices and continuously develop my competencies in these areas through personal projects. I can work effectively in multicultural teams, supported by my English proficiency strengthened through international experiences.",
         'location': 'Gaziosmanpasa/Istanbul',
         'getInTouch': 'Get In Touch',
         'present': 'Present',
@@ -20,10 +20,15 @@ const translations = {
         'softwareDev': 'Software Developer',
         'webDevIntern': 'Web Development Intern',
         'erasmusIntern': 'Erasmus+ Intern',
-        // Project descriptions
-        'cloudResumeDesc': 'Personal resume site on OCI using API Gateway + Functions (unique, privacy-friendly counter), Object Storage, daily email via Notifications + GitHub Actions.',
-        'mapDesc': 'A web-based project that allows users to interactively select provinces or districts and automatically generates keywords.',
-        'recipeDesc': 'A mobile application that provides automatic recipe suggestions based on available ingredients using AI.',
+    // Project descriptions
+    'cloudResumeTitle': 'Cloud Resume',
+    'cloudResumeDesc': 'Personal resume site on OCI using API Gateway + Functions (unique, privacy-friendly counter), Object Storage, daily email via Notifications + GitHub Actions.',
+    'sahibindenTitle': 'Sahibinden API Integration',
+    'sahibindenDesc': 'A backend integration project that automated product management, price calculation, order creation, and status updates.',
+    'mapTitle': 'Keyword Generation with Interactive Turkey Map',
+    'mapDesc': 'A web-based project that allows users to interactively select provinces or districts and automatically generates keywords.',
+    'recipeTitle': 'Recipe Buddy Mobile Application',
+    'recipeDesc': 'A mobile application that provides automatic recipe suggestions based on available ingredients using AI.',
         // Education
         'paymentTitle': 'Payment System Integration',
         'paymentDesc': 'End-to-end payment integration using Laravel with third-party providers via RESTful APIs; full API testing.',
@@ -64,7 +69,7 @@ const translations = {
         'education': 'Eğitim',
         'greeting': 'Merhaba, ben',
         'role': 'Web için çözümler geliştiriyorum.',
-        'description': 'PHP, Laravel ve MySQL teknolojilerinde 1+ yıllık profesyonel deneyime sahip bir Yazılım Geliştiricisiyim. Deneyimim, ERP sistemleri için RESTful API entegrasyonu geliştirmek, veritabanı optimizasyonu yapmak ve iş süreci otomasyonları tasarlamak üzerine odaklanmıştır. Cloud (OCI) ve DevOps süreçlerine aktif olarak ilgi duyuyor ve bu alandaki yetkinliklerimi kişisel çalışmalarımla sürekli geliştiriyorum. Uluslararası deneyimlerimle güçlendirdiğim İngilizce ile çok kültürlü ekiplerde etkin bir şekilde çalışabiliyorum.',
+        'description': 'PHP, Laravel ve MySQL teknolojilerinde profesyonel deneyime sahip bir Yazılım Geliştiricisiyim. Deneyimim, ERP sistemleri için RESTful API entegrasyonu geliştirmek, veritabanı optimizasyonu yapmak ve iş süreci otomasyonları tasarlamak üzerine odaklanmıştır. Cloud (OCI) ve DevOps süreçlerine aktif olarak ilgi duyuyor ve bu alandaki yetkinliklerimi kişisel çalışmalarımla sürekli geliştiriyorum. Uluslararası deneyimlerimle güçlendirdiğim İngilizce ile çok kültürlü ekiplerde etkin bir şekilde çalışabiliyorum.',
         'location': 'Gaziosmanpaşa/İstanbul',
         'getInTouch': 'İletişime Geç',
         'present': 'Günümüz',
@@ -102,15 +107,31 @@ const translations = {
         'exp_wat_b1': 'Amerika Birleşik Devletleri\'nde toplam 10 ay geçirerek bu programa iki yaz mevsimi boyunca katıldım',
         'exp_wat_b2': 'Tommy Hilfiger, Dunkin Donuts ve Walmart gibi şirketlerde çalışarak uluslararası iş deneyimi kazandım',
         'exp_wat_b3': 'Çeşitli iş ortamları aracılığıyla İngilizce iletişim becerilerimi geliştirdim ve kültürel uyum yeteneğimi artırdım',
-        // Project descriptions
-        'mapDesc': 'Kullanıcıların etkileşimli olarak il veya ilçe seçebildiği ve otomatik olarak anahtar kelimeler üreten web tabanlı bir proje.',
-        'recipeDesc': 'Mevcut malzemelere göre AI kullanarak otomatik tarif önerileri sunan bir mobil uygulama.',
+    // Project descriptions
+    'cloudResumeTitle': 'Cloud Resume',
+    'cloudResumeDesc': 'OCI üzerinde barındırılan kişisel CV sitesi: API Gateway + Functions (benzersiz ve gizlilik dostu sayaç), Object Storage, Notifications + GitHub Actions ile günlük e‑posta.',
+    'sahibindenTitle': 'Sahibinden API Entegrasyonu',
+    'sahibindenDesc': 'Ürün yönetimi, fiyat hesaplama, sipariş oluşturma ve durum güncellemelerini otomatikleştiren bir backend entegrasyon projesi.',
+    'mapTitle': 'Etkileşimli Türkiye Haritası ile Anahtar Kelime Üretimi',
+    'mapDesc': 'Kullanıcıların etkileşimli olarak il veya ilçe seçerek otomatik anahtar kelimeler üretebildiği web tabanlı proje.',
+    'recipeTitle': 'Recipe Buddy Mobil Uygulaması',
+    'recipeDesc': 'Mevcut malzemelere göre yapay zekâ kullanarak otomatik tarif önerileri sunan bir mobil uygulama.',
+        //Languages
+        'languages': 'Diller',
+        'turkish': 'Türkçe',
+        'native': 'Ana Dil',
+        'english': 'İngilizce',
+        'b2': 'B2 Seviyesi',
         // Education
         'compEng': 'Bilgisayar Mühendisliği (İngilizce)',
         'eduDesc': 'Yazılım geliştirme ve web teknolojilerine odaklanarak mezun oldum. İngilizce program sayesinde iletişim becerilerimi geliştirdim ve farklı kültürlerle çalışma yetkinliği kazandım.',
+        'college': 'Manisa Celal Bayar Üniversitesi',
         'intExp': 'Uluslararası Deneyim:',
         'erasmusExp': 'Polonya Czestochowa Teknoloji Üniversitesi\'nde Erasmus+ Stajı',
-        'watExp': 'Amerika Birleşik Devletleri\'nde Work and Travel Programı (10 ay)'
+        'watExp': 'Amerika Birleşik Devletleri\'nde Work and Travel Programı (10 ay)',
+
+        //footer
+        'footer': 'Tasarım & Geliştirme: Yunus Ergül'
     }
 };
 

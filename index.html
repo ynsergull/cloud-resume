@@ -90,8 +90,8 @@
       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-light-text mb-4">Yunus Ergül.</h1>
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-400 mb-8" data-i18n="role">I build things for the web.</h2>
       
-      <div class="max-w-2xl">
-        <p class="text-lg leading-relaxed mb-8" data-i18n="description"></p>
+      <div class="">
+        <p class="text-lg leading-relaxed mb-12" data-i18n="description"></p>
         
         <div class="flex flex-wrap gap-4 mb-12">
           <div class="flex items-center">
@@ -116,8 +116,8 @@
             <span id="unique-count">-</span>
           </div>
         </div>
-        
-        <a href="mailto:yunus.ergul7@outlook.com" class="inline-block border border-accent text-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-medium">
+
+        <a href="mailto:yunus.ergul7@outlook.com" class="inline-block border border-accent text-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-medium" data-i18n="getInTouch">
           Get In Touch
         </a>
       </div>
@@ -218,8 +218,8 @@
         <div class="project-card bg-card-bg rounded-xl p-8 relative">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h3 class="text-xl font-bold text-light-text mb-2">Cloud Resume Challenge</h3>
-              <p class="text-medium-text mb-4">
+              <h3 class="text-xl font-bold text-light-text mb-2" data-i18n="cloudResumeTitle">Cloud Resume</h3>
+              <p class="text-medium-text mb-4" data-i18n="cloudResumeDesc">
                 Oracle Cloud Infrastructure üzerinde barındırılan kişisel CV projesi. Ziyaretçi sayacı için
                 API Gateway + Functions, benzersiz ziyaretçi takibi (tarayıcı bazlı, gizlilik dostu), Object Storage’da
                 veri saklama ve günlük e-posta raporları için Notifications + GitHub Actions kullanıldı. Çok dilli ve mobil uyumlu arayüz.
@@ -244,7 +244,7 @@
         <div class="project-card bg-card-bg rounded-xl p-8 relative">
           <div class="flex justify-between items-start mb-4">
             <div>
-      <h3 class="text-xl font-bold text-light-text mb-2">Sahibinden API Integration</h3>
+      <h3 class="text-xl font-bold text-light-text mb-2" data-i18n="sahibindenTitle">Sahibinden API Integration</h3>
       <p class="text-medium-text mb-4" data-i18n="sahibindenDesc">A backend integration project that automated product management, price calculation, order creation, and status updates.</p>
             </div>
             <a href="#" class="text-accent hover:text-purple-300 transition-colors">
@@ -264,8 +264,8 @@
         <div class="project-card bg-card-bg rounded-xl p-8 relative">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h3 class="text-xl font-bold text-light-text mb-2">Keyword Generation with Interactive Turkey Map</h3>
-              <p class="text-medium-text mb-4">
+              <h3 class="text-xl font-bold text-light-text mb-2" data-i18n="mapTitle">Keyword Generation with Interactive Turkey Map</h3>
+              <p class="text-medium-text mb-4" data-i18n="mapDesc">
                 A web-based project that allows users to interactively select provinces or districts and automatically generates keywords.
               </p>
             </div>
@@ -285,8 +285,8 @@
         <div class="project-card bg-card-bg rounded-xl p-8 relative">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <h3 class="text-xl font-bold text-light-text mb-2">Recipe Buddy Mobile Application</h3>
-              <p class="text-medium-text mb-4">
+              <h3 class="text-xl font-bold text-light-text mb-2" data-i18n="recipeTitle">Recipe Buddy Mobile Application</h3>
+              <p class="text-medium-text mb-4" data-i18n="recipeDesc">
                 A mobile application that provides automatic recipe suggestions based on available ingredients using AI.
               </p>
             </div>
@@ -374,12 +374,12 @@
       
       <!-- Languages -->
       <div class="mt-16">
-        <h3 class="text-2xl font-bold text-light-text mb-6">Languages</h3>
+        <h3 class="text-2xl font-bold text-light-text mb-6" data-i18n="languages">Languages</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-card-bg rounded-xl p-6">
             <div class="flex justify-between items-center mb-3">
-              <span class="font-medium text-light-text">Turkish</span>
-              <span class="text-accent font-medium">Native</span>
+              <span class="font-medium text-light-text" data-i18n="turkish">Turkish</span>
+              <span class="text-accent font-medium" data-i18n="native">Native</span>
             </div>
             <div class="w-full bg-slate-700 rounded-full h-2">
               <div class="bg-accent h-2 rounded-full" style="width: 100%"></div>
@@ -387,8 +387,8 @@
           </div>
           <div class="bg-card-bg rounded-xl p-6">
             <div class="flex justify-between items-center mb-3">
-              <span class="font-medium text-light-text">English</span>
-              <span class="text-accent font-medium">B2 Level</span>
+              <span class="font-medium text-light-text" data-i18n="english">English</span>
+              <span class="text-accent font-medium" data-i18n="b2">B2 Level</span>
             </div>
             <div class="w-full bg-slate-700 rounded-full h-2">
               <div class="bg-accent h-2 rounded-full" style="width: 75%"></div>
@@ -405,21 +405,21 @@
       <div class="bg-card-bg rounded-xl p-8">
         <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
           <div>
-            <h3 class="text-xl font-bold text-light-text mb-1">Computer Engineering (English)</h3>
-            <p class="text-accent">Manisa Celal Bayar University</p>
+            <h3 class="text-xl font-bold text-light-text mb-1" data-i18n="compEng">Computer Engineering (English)</h3>
+            <p class="text-accent" data-i18n="college">Manisa Celal Bayar University</p>
           </div>
           <div class="mt-2 md:mt-0 text-dark-text">2018 - 2024</div>
         </div>
-        <p class="text-medium-text">
+        <p class="text-medium-text" data-i18n="eduDesc">
           Graduated with a focus on software development and web technologies. Enhanced English communication skills 
           through the English program and developed competence in working with diverse cultural backgrounds.
         </p>
         
         <div class="mt-6">
-          <h4 class="font-bold text-light-text mb-3">International Experience:</h4>
+          <h4 class="font-bold text-light-text mb-3" data-i18n="intExp">International Experience:</h4>
           <ul class="space-y-2 pl-5 list-disc">
-            <li>Erasmus+ Internship at Czestochowa University of Technology, Poland</li>
-            <li>Work and Travel Program in the United States (10 months)</li>
+            <li data-i18n="erasmusExp">Erasmus+ Internship at Czestochowa University of Technology, Poland</li>
+            <li data-i18n="watExp">Work and Travel Program in the United States (10 months)</li>
           </ul>
         </div>
       </div>
@@ -429,7 +429,7 @@
   <!-- Footer -->
   <footer class="py-8 text-center text-dark-text border-t border-slate-800">
     <div class="max-w-4xl mx-auto px-5">
-      <p>Designed & Built by Yunus Ergül</p>
+      <p data-i18n="footer">Designed & Built by Yunus Ergül</p>
       <div class="mt-4 flex justify-center space-x-6 lg:hidden">
         <a href="https://github.com/ynsergull" class="social-link text-slate-400 transition-all duration-300">
           <i class="fa-brands fa-github text-xl"></i>
