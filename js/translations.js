@@ -7,7 +7,7 @@ const translations = {
         'education': 'Education',
         'greeting': 'Hi, my name is',
         'role': 'I build things for the web.',
-        'description': "I am a Software Developer with over one year of professional experience in PHP, Laravel, and MySQL. My expertise focuses on developing RESTful API integrations for ERP systems, optimizing databases, and designing business process automations. I am actively interested in Cloud (OCI) and DevOps practices and continuously develop my competencies in these areas through personal projects. I can work effectively in multicultural teams, supported by my English proficiency strengthened through international experiences.",
+        'description': "I am a Software Developer with over one year of professional experience in PHP, Laravel, and MySQL. My expertise focuses on developing RESTful API integrations for ERP systems, optimizing databases, and designing business process automations.  I am actively interested in Cloud (OCI) and DevOps practices and continuously develop my competencies in these areas through personal projects. I can work effectively in multicultural teams, supported by my English proficiency strengthened through international experiences.",
         'location': 'Gaziosmanpasa/Istanbul',
         'getInTouch': 'Get In Touch',
         'present': 'Present',
