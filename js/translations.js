@@ -31,6 +31,24 @@ const translations = {
         'ytDesc': 'A Python desktop app that transcribes YouTube videos with AI, supports multiple languages, auto-summarization, and PDF export.',
         'watTitle': 'Work and Travel Program',
         'watPeriod': '2022 - 2023',
+        // Company names
+        'deltaCompany': 'Delta Global Servis',
+        'adresCompany': 'Adregezgini Gayrimenkul',
+        'czCompany': 'Czestochowa University of Technology',
+        'unspedCompany': 'Ünsped Global Logistics',
+        // Project titles
+        'cloudResumeTitle': 'Cloud Resume Challenge',
+        'sahibindenTitle': 'Sahibinden API Integration',
+        'mapTitle': 'Keyword Generation with Interactive Turkey Map',
+        'recipeTitle': 'Recipe Buddy Mobile Application',
+        'sahibindenDesc': 'A backend integration project that automated product management, price calculation, order creation, and status updates.',
+        // Languages section
+        'languages': 'Languages',
+        'turkishLang': 'Turkish',
+        'englishLang': 'English',
+        // University
+        'universityName': 'Manisa Celal Bayar University',
+        'universityLocation': 'Manisa, Turkey',
         // Experience details
         'deltaPeriod': 'Jul 2024 - Present',
         'adresPeriod': 'Feb 2024 - Jun 2024',
@@ -83,6 +101,24 @@ const translations = {
         'ytDesc': 'YouTube videolarını AI ile metne dönüştüren, çok dilli, özetleme ve PDF dışa aktarma özellikli bir Python masaüstü uygulaması.',
         'watTitle': 'Work and Travel Programı',
         'watPeriod': '2022 - 2023',
+        // Company names
+        'deltaCompany': 'Delta Global Servis',
+        'adresCompany': 'Adregezgini Gayrimenkul',
+        'czCompany': 'Çestohova Teknoloji Üniversitesi',
+        'unspedCompany': 'Ünsped Global Lojistik',
+        // Project titles
+        'cloudResumeTitle': 'Cloud Resume Challenge',
+        'sahibindenTitle': 'Sahibinden API Entegrasyonu',
+        'mapTitle': 'Etkileşimli Türkiye Haritası ile Anahtar Kelime Üretimi',
+        'recipeTitle': 'Recipe Buddy Mobil Uygulaması',
+        'sahibindenDesc': 'Ürün yönetimi, fiyat hesaplama, sipariş oluşturma ve durum güncellemelerini otomatikleştiren bir backend entegrasyon projesi.',
+        // Languages section
+        'languages': 'Diller',
+        'turkishLang': 'Türkçe',
+        'englishLang': 'İngilizce',
+        // University
+        'universityName': 'Manisa Celal Bayar Üniversitesi',
+        'universityLocation': 'Manisa, Türkiye',
         // Experience details
         'deltaPeriod': 'Tem 2024 - Günümüz',
         'adresPeriod': 'Şub 2024 - Haz 2024',
@@ -93,7 +129,7 @@ const translations = {
         'exp_delta_b3': 'Dinamik raporlama ve listeleme özelliklerini desteklemek için MySQL veritabanı şemaları tasarlıyor ve optimize edilmiş SQL sorguları yazıyorum',
         'exp_adres_b1': 'Kullanıcıların il ve ilçe seçimlerine göre Google Ads anahtar kelimeleri üretmelerine olanak tanıyan etkileşimli Türkiye haritası özellikli bir web uygulaması geliştirdim',
         'exp_adres_b2': 'SEO dostu kurumsal web sitesi projelerinin hem backend hem de frontend geliştirme süreçlerine katkıda bulundum',
-        'exp_cz_b1': 'Ansys simülasyon yazılımını kullanarak boru hattı içerisindeki iki fazlı sıvıların (yağ ve su) akış davranışını modelledim ve analiz ettim',
+        'exp_cz_b1': 'Ansys simülasyon yazılımını kullanarak boru hattı içerisindeki iki fazlı sıvıların (petrol ve su) akış davranışını modelledim ve analiz ettim',
         'exp_cz_b2': 'Simülasyon sonuçlarından teknik raporlar hazırladım',
         'exp_cz_b3': 'Uluslararası bir ortamda proje yürütme ve teknik İngilizce iletişim becerilerimi geliştirdim',
         'exp_unsped_b1': 'ASP.NET MVC teknolojisini kullanarak web projelerinin hem frontend hem de backend geliştirme süreçlerinde yer aldım',
