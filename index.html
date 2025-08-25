@@ -43,14 +43,12 @@
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-dark-bg z-40 flex flex-col items-center justify-center space-y-8">
-    <button id="close-menu" class="absolute top-6 right-6 text-light-text">
-      <i class="fa-solid fa-xmark text-2xl"></i>
-    </button>
     <a href="#about" class="nav-link text-2xl text-light-text font-medium" data-i18n="about">About</a>
     <a href="#experience" class="nav-link text-2xl text-light-text font-medium" data-i18n="experience">Experience</a>
     <a href="#projects" class="nav-link text-2xl text-light-text font-medium" data-i18n="projects">Projects</a>
     <a href="#skills" class="nav-link text-2xl text-light-text font-medium" data-i18n="skills">Skills</a>
     <a href="#education" class="nav-link text-2xl text-light-text font-medium" data-i18n="education">Education</a>
+    <a href="#certificates" class="nav-link text-2xl text-light-text font-medium" data-i18n="certificates">Certificates</a>
   </div>
 
   <!-- Left Sidebar -->
@@ -71,19 +69,49 @@
     </div>
   </div>
 
-  <!-- Right Sidebar (Navigation) -->
-  <div class="fixed right-10 top-0 h-full hidden lg:flex items-center">
-    <nav class="transform -rotate-90 origin-right flex space-x-8">
-      <a href="#education" class="nav-link relative text-light-text font-medium" data-i18n="education">Education</a>
-      <a href="#skills" class="nav-link relative text-light-text font-medium" data-i18n="skills">Skills</a>
-      <a href="#projects" class="nav-link relative text-light-text font-medium" data-i18n="projects">Projects</a>
-      <a href="#experience" class="nav-link relative text-light-text font-medium" data-i18n="experience">Experience</a>
-      <a href="#about" class="nav-link relative text-light-text font-medium" data-i18n="about">About</a>
-    </nav>
-  </div>
+<!-- Right Sidebar (Navigation) - GÜNCELLENMİŞ VERSİYON -->
+<div class="fixed right-0 top-1/2 transform -translate-y-1/2 z-30 hidden md:flex flex-col items-center">
+  <nav class="flex flex-col space-y-6 p-4 bg-dark-bg/80 backdrop-blur-sm rounded-l-lg border-l border-t border-b border-slate-700">
+    <a href="#about" class="nav-link relative text-light-text font-medium text-sm" data-i18n="about">About</a>
+    <a href="#experience" class="nav-link relative text-light-text font-medium text-sm" data-i18n="experience">Experience</a>
+    <a href="#projects" class="nav-link relative text-light-text font-medium text-sm" data-i18n="projects">Projects</a>
+    <a href="#skills" class="nav-link relative text-light-text font-medium text-sm" data-i18n="skills">Skills</a>
+    <a href="#education" class="nav-link relative text-light-text font-medium text-sm" data-i18n="education">Education</a>
+    <a href="#certificates" class="nav-link relative text-light-text font-medium text-sm" data-i18n="certificates">Certificates</a>
+  </nav>
+</div>
+<!-- Mobile Bottom Navigation - YENİ EKLENEN KISIM -->
+<div class="nav-container lg:hidden">
+  <nav class="horizontal-nav">
+    <a href="#about" class="nav-link text-light-text" data-i18n="about">
+      <i class="fa-solid fa-user"></i>
+      <span>About</span>
+    </a>
+    <a href="#experience" class="nav-link text-light-text" data-i18n="experience">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>Experience</span>
+    </a>
+    <a href="#projects" class="nav-link text-light-text" data-i18n="projects">
+      <i class="fa-solid fa-code"></i>
+      <span>Projects</span>
+    </a>
+    <a href="#skills" class="nav-link text-light-text" data-i18n="skills">
+      <i class="fa-solid fa-gears"></i>
+      <span>Skills</span>
+    </a>
+    <a href="#education" class="nav-link text-light-text" data-i18n="education">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Education</span>
+    </a>
+    <a href="#certificates" class="nav-link text-light-text" data-i18n="certificates">
+      <i class="fa-solid fa-award"></i>
+      <span>Certificates</span>
+    </a>
+  </nav>
+</div>
 
   <!-- Main Content -->
-  <div class="max-w-4xl mx-auto px-5 py-20 lg:py-32 lg:px-0">
+  <div class="max-w-4xl mx-auto px-5 py-20 lg:py-32 lg:px-0 main-content">
     <!-- Hero Section -->
     <section id="about" class="mb-24 lg:mb-32">
       <p class="text-accent mb-4" data-i18n="greeting">Hi, my name is</p>
@@ -421,6 +449,35 @@
             <li data-i18n="erasmusExp">Erasmus+ Internship at Czestochowa University of Technology, Poland</li>
             <li data-i18n="watExp">Work and Travel Program in the United States (10 months)</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="mb-24 lg:mb-32 scroll-mt-20">
+      <div class="max-w-4xl mx-auto px-5 lg:px-0">
+        <h2 class="text-3xl font-bold text-light-text mb-12 section-title" data-i18n="certificates">Certificates</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=5B86E515723E3F41F1DABCD339BF9E890E1622AF4E1D82F74220EA7271AFF85E" target="_blank" rel="noopener" class="block bg-card-bg rounded-xl p-6 hover:bg-white/5 hover:scale-[1.01] transition">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold text-light-text mb-1" data-i18n="cert1Title">Oracle Cloud Infrastructure Foundations 2021 Associate</h3>
+              </div>
+              <i class="fa-solid fa-award text-accent text-2xl"></i>
+            </div>
+            <div class="mt-4 text-accent text-sm" data-i18n="viewCert">View certificate</div>
+          </a>
+
+          <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=EAA79D0A0D643E3278B254DE7A8F0154E38334AA1794F0DA56759F404E9970E6" target="_blank" rel="noopener" class="block bg-card-bg rounded-xl p-6 hover:bg-white/5 hover:scale-[1.01] transition">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold text-light-text mb-1" data-i18n="cert2Title">Oracle Cloud Infrastructure 2021 Architect Associate</h3>
+              </div>
+              <i class="fa-solid fa-award text-accent text-2xl" style="padding-left: 3px;"></i>
+            </div>
+            <div class="mt-4 text-accent text-sm" data-i18n="viewCert">View certificate</div>
+          </a>
         </div>
       </div>
     </section>

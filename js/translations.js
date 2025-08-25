@@ -59,7 +59,10 @@ const translations = {
         'eduDesc': 'Graduated with a focus on software development and web technologies. Enhanced English communication skills through the English program and developed competence in working with diverse cultural backgrounds.',
         'intExp': 'International Experience:',
         'erasmusExp': 'Erasmus+ Internship at Czestochowa University of Technology, Poland',
-        'watExp': 'Work and Travel Program in the United States (10 months)'
+        'watExp': 'Work and Travel Program in the United States (10 months)',
+        // Certificates
+        'certificates': 'Certificates',
+        'viewCert': 'View certificate'
     },
     'tr': {
         'about': 'Hakkımda',
@@ -129,6 +132,9 @@ const translations = {
         'intExp': 'Uluslararası Deneyim:',
         'erasmusExp': 'Polonya Czestochowa Teknoloji Üniversitesi\'nde Erasmus+ Stajı',
         'watExp': 'Amerika Birleşik Devletleri\'nde Work and Travel Programı (10 ay)',
+        // Certificates
+        'certificates': 'Sertifikalar',
+        'viewCert': 'Sertifikayı Görüntüle',
 
         //footer
         'footer': 'Tasarım & Geliştirme: Yunus Ergül'

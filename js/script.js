@@ -119,51 +119,69 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Mobile menu toggle - guard elements exist
-const menuToggle = document.getElementById('menu-toggle');
-const closeMenu = document.getElementById('close-menu');
-const mobileMenu = document.getElementById('mobile-menu');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-if (menuToggle && closeMenu && mobileMenu) {
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('open');
+        
+        if (isOpen) {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+          // Menü ikonunu değiştir (çarpıdan üç çizgiye)
+          menuToggle.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+        } else {
+          mobileMenu.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          // Menü ikonunu değiştir (üç çizgiden çarpıya)
+          menuToggle.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+        }
+      });
 
-  closeMenu.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  });
+      // Close menu when clicking on links
+      const mobileLinks = document.querySelectorAll('#mobile-menu a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+          // Menü ikonunu üç çizgiye geri değiştir
+          menuToggle.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+        });
+      });
+    }
 
-  // Close menu when clicking on links
-  const mobileLinks = document.querySelectorAll('#mobile-menu a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+    // Yatay navbar linkleri için de tıklama olayı ekle
+    document.querySelectorAll('.horizontal-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        // Mobil menüyü kapat
+        if (mobileMenu) {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
     });
-  });
-}
 
-// Visitor counter element reference (may be null if not present)
-const visitorCount = document.getElementById('visitor-count');
+    // Visitor counter element reference (may be null if not present)
+    const visitorCount = document.getElementById('visitor-count');
 
-// Highlight active nav link on scroll
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= (sectionTop - 300)) {
-      current = section.getAttribute('id');
-    }
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active-nav');
-    if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
-      link.classList.add('active-nav');
-    }
-  });
-});
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 300)) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active-nav');
+        if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active-nav');
+        }
+      });
+    });
