@@ -72,25 +72,27 @@ function getVisitorId() {
 }
 async function incrementVisitorCount() {
   try {
-  const el = document.getElementById('visitor-count');
-  const uniqueEl = document.getElementById('unique-count');
-  const vid = getVisitorId();
-  const url = `${API_GATEWAY_BASE}/counter?vid=${encodeURIComponent(vid)}`;
-  if (!el) { console.warn('visitor-count element not found'); return null; }
-  const response = await fetch(url, { method: "GET", mode: 'cors', cache: 'no-store' });
-    if (!response.ok) {
-      console.warn('Counter fetch returned non-OK status', response.status);
-      return null;
+    const el = document.getElementById('visitor-count');
+    const uniqueEl = document.getElementById('unique-count');
+    const vid = getVisitorId();
+    if (!el) { console.warn('visitor-count element not found'); return null; }
+
+    let lastError = null;
+    for (const p of COUNTER_PATHS) {
+      const url = `${API_GATEWAY_BASE}/${p}?vid=${encodeURIComponent(vid)}`;
+      try {
+        const resp = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store' });
+        if (!resp.ok) { lastError = new Error(`HTTP ${resp.status}`); continue; }
+        const data = await resp.json();
+        if (typeof data.count !== 'undefined') el.textContent = data.count;
+        if (uniqueEl && typeof data.unique !== 'undefined') uniqueEl.textContent = data.unique;
+        return data;
+      } catch (e) {
+        lastError = e; // blocked or network error; try next path
+        continue;
+      }
     }
-    const data = await response.json();
-    if (el && data && typeof data.count !== 'undefined') {
-      el.textContent = data.count;
-    }
-    if (uniqueEl && data && typeof data.unique !== 'undefined') {
-      uniqueEl.textContent = data.unique;
-    }
-    console.log('Visitor count:', data);
-    return data;
+    throw lastError || new Error('All counter paths failed');
   } catch (error) {
     console.error('Error incrementing/fetching visitor count:', error);
     return null;
