@@ -94,11 +94,12 @@ def _hash_uid(uid):
 
 def _cors_headers():
     return {
-        "Access-Control-Allow-Origin": "https://www.yunusergul.com",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,OPTIONS",
         "Access-Control-Allow-Headers": "content-type",
         "Cache-Control": "no-store",
         "Content-Type": "application/json",
+        "Vary": "Origin"
     }
 
 def _publish_report(doc):

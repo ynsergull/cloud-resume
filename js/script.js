@@ -50,7 +50,7 @@ function setLanguage(lang) {
 // Visitor counter functionality
 // Oracle API Gateway base (change here if gateway URL changes)
 const API_GATEWAY_BASE = "https://alxca7khnm6i2oynvdlggw56u4.apigateway.eu-frankfurt-1.oci.customer-oci.com";
-
+const COUNTER_PATHS = ['views', 'counter'];
 // Generate/store a per-browser UUID to count uniques by browser (privacy-friendly)
 function getVisitorId() {
   try {
@@ -72,25 +72,32 @@ function getVisitorId() {
 }
 async function incrementVisitorCount() {
   try {
-  const el = document.getElementById('visitor-count');
-  const uniqueEl = document.getElementById('unique-count');
-  const vid = getVisitorId();
-  const url = `${API_GATEWAY_BASE}/counter?vid=${encodeURIComponent(vid)}`;
-  if (!el) { console.warn('visitor-count element not found'); return null; }
-  const response = await fetch(url, { method: "GET", mode: 'cors', cache: 'no-store' });
-    if (!response.ok) {
-      console.warn('Counter fetch returned non-OK status', response.status);
-      return null;
+    const el = document.getElementById('visitor-count');
+    const uniqueEl = document.getElementById('unique-count');
+    const vid = getVisitorId();
+    if (!el) { console.warn('visitor-count element not found'); return null; }
+
+    let lastErr = null;
+    for (const p of COUNTER_PATHS) {
+      const url = `${API_GATEWAY_BASE}/${p}?vid=${encodeURIComponent(vid)}`;
+      try {
+        console.debug('[counter] GET', url);
+        const response = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store' });
+        if (!response.ok) { lastErr = new Error(`HTTP ${response.status}`); continue; }
+        const data = await response.json();
+
+        if (typeof data.count !== 'undefined') el.textContent = data.count;
+        if (uniqueEl && typeof data.unique !== 'undefined') uniqueEl.textContent = data.unique;
+
+        console.log('Visitor count:', data);
+        return data;
+      } catch (e) {
+        // Ad-block veya ağ hatası; bir sonraki path'i dene
+        lastErr = e;
+        continue;
+      }
     }
-    const data = await response.json();
-    if (el && data && typeof data.count !== 'undefined') {
-      el.textContent = data.count;
-    }
-    if (uniqueEl && data && typeof data.unique !== 'undefined') {
-      uniqueEl.textContent = data.unique;
-    }
-    console.log('Visitor count:', data);
-    return data;
+    throw lastErr || new Error('All counter paths failed');
   } catch (error) {
     console.error('Error incrementing/fetching visitor count:', error);
     return null;
