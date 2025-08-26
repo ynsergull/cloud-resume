@@ -13,8 +13,10 @@ jobs:
           $ErrorActionPreference = "Stop"
           if (-not ("${{ secrets.REPORT_URL }}")) { throw "Missing secret REPORT_URL" }
           if (-not ("${{ secrets.REPORT_TOKEN }}")) { throw "Missing secret REPORT_TOKEN" }
-          $uri = "${{ secrets.REPORT_URL }}?token=${{ secrets.REPORT_TOKEN }}"
-          Write-Host "Calling $uri"
+          $token = [uri]::EscapeDataString("${{ secrets.REPORT_TOKEN }}")
+          $uri = "${{ secrets.REPORT_URL }}?report=1&token=$token"
+          $safeUri = "${{ secrets.REPORT_URL }}?report=1&token=****"
+          Write-Host "Calling $safeUri"
           $resp = Invoke-WebRequest -Uri $uri -Method GET -UseBasicParsing
           Write-Host "Status: $($resp.StatusCode)"
           Write-Host "Body: $($resp.Content)"

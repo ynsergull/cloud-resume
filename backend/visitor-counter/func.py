@@ -1,4 +1,4 @@
-import io, json, os, time, traceback, hashlib
+import io, json, os, time, traceback, hashlib, hmac
 from urllib.parse import urlparse, parse_qs
 from fdk import response
 import oci
@@ -121,13 +121,17 @@ def handler(ctx, data: io.BytesIO=None):
 
     try:
         if _is_report_request(ctx):
-            token = _get_token(ctx)
-            if not REPORT_TOKEN or token != REPORT_TOKEN:
-                return response.Response(ctx, status_code=403, response_data=json.dumps({"ok": False, "error": "forbidden"}), headers=_cors_headers())
+            token = (_get_token(ctx) or "").strip()
+            expected = (REPORT_TOKEN or "").strip()
+            if not expected or not hmac.compare_digest(token, expected):
+                return response.Response(ctx, status_code=403,
+                                         response_data=json.dumps({"ok": False, "error": "forbidden"}),
+                                         headers=_cors_headers())
             doc, _ = read_doc(client, ns)
             _publish_report(doc)
-            return response.Response(ctx, response_data=json.dumps({"ok": True, "report": True}), headers=_cors_headers())
-
+            return response.Response(ctx, response_data=json.dumps({"ok": True, "report": True}),
+                                     headers=_cors_headers())
+        
         vid = _get_vid_from_ctx(ctx)
         uid_hash = _hash_uid(vid) if vid else None
 
