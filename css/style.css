@@ -8,6 +8,17 @@
       font-family: 'Inter', sans-serif;
     }
 
+    #project-modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Skill badge styles */
+    .skill-badge {
+      background-color: rgba(168, 85, 247, 0.1);
+      color: #a855f7;
+    }
+
     .section-title {
       position: relative;
       display: inline-block;

@@ -20,15 +20,15 @@ const translations = {
         'softwareDev': 'Software Developer',
         'webDevIntern': 'Web Development Intern',
         'erasmusIntern': 'Erasmus+ Intern',
-    // Project descriptions
-    'cloudResumeTitle': 'Cloud Resume',
-    'cloudResumeDesc': 'Personal resume site on OCI using API Gateway + Functions (unique, privacy-friendly counter), Object Storage, daily email via Notifications + GitHub Actions.',
-    'sahibindenTitle': 'Sahibinden API Integration',
-    'sahibindenDesc': 'A backend integration project that automated product management, price calculation, order creation, and status updates.',
-    'mapTitle': 'Keyword Generation with Interactive Turkey Map',
-    'mapDesc': 'A web-based project that allows users to interactively select provinces or districts and automatically generates keywords.',
-    'recipeTitle': 'Recipe Buddy Mobile Application',
-    'recipeDesc': 'A mobile application that provides automatic recipe suggestions based on available ingredients using AI.',
+        // Project descriptions
+        'cloudResumeTitle': 'Cloud Resume',
+        'cloudResumeDesc': 'Personal resume site on OCI using API Gateway + Functions (unique, privacy-friendly counter), Object Storage, daily email via Notifications + GitHub Actions.',
+        'sahibindenTitle': 'Sahibinden API Integration',
+        'sahibindenDesc': 'A backend integration project that automated product management, price calculation, order creation, and status updates.',
+        'mapTitle': 'Keyword Generation with Interactive Turkey Map',
+        'mapDesc': 'A web-based project that allows users to interactively select provinces or districts and automatically generates keywords.',
+        'recipeTitle': 'Recipe Buddy Mobile Application',
+        'recipeDesc': 'A mobile application that provides automatic recipe suggestions based on available ingredients using AI.',
         // Education
         'paymentTitle': 'Payment System Integration',
         'paymentDesc': 'End-to-end payment integration using Laravel with third-party providers via RESTful APIs; full API testing.',
@@ -62,7 +62,14 @@ const translations = {
         'watExp': 'Work and Travel Program in the United States (10 months)',
         // Certificates
         'certificates': 'Certificates',
-        'viewCert': 'View certificate'
+    'viewCert': 'View certificate',
+    // Modal — Cloud Resume
+    'details': 'Details',
+    'cloudModalTitle': 'Cloud Resume — Details',
+    'cloudModalP1': 'Privacy-friendly analytics: unique and total visitors with Object Storage, ETag-safe increments.',
+    'cloudModalP2': 'Serverless stack: API Gateway + Functions (Python), daily reports via Notifications + GitHub Actions.',
+    'cloudModalP3': 'Frontend: bilingual (TR/EN), Tailwind, ad-block-safe counter endpoint.',
+    'cloudModalCTA': 'View on GitHub'
     },
     'tr': {
         'about': 'Hakkımda',
@@ -110,15 +117,15 @@ const translations = {
         'exp_wat_b1': 'Amerika Birleşik Devletleri\'nde toplam 10 ay geçirerek bu programa iki yaz mevsimi boyunca katıldım',
         'exp_wat_b2': 'Tommy Hilfiger, Dunkin Donuts ve Walmart gibi şirketlerde çalışarak uluslararası iş deneyimi kazandım',
         'exp_wat_b3': 'Çeşitli iş ortamları aracılığıyla İngilizce iletişim becerilerimi geliştirdim ve kültürel uyum yeteneğimi artırdım',
-    // Project descriptions
-    'cloudResumeTitle': 'Cloud Resume',
-    'cloudResumeDesc': 'OCI üzerinde barındırılan kişisel CV sitesi: API Gateway + Functions (benzersiz ve gizlilik dostu sayaç), Object Storage, Notifications + GitHub Actions ile günlük e‑posta.',
-    'sahibindenTitle': 'Sahibinden API Entegrasyonu',
-    'sahibindenDesc': 'Ürün yönetimi, fiyat hesaplama, sipariş oluşturma ve durum güncellemelerini otomatikleştiren bir backend entegrasyon projesi.',
-    'mapTitle': 'Etkileşimli Türkiye Haritası ile Anahtar Kelime Üretimi',
-    'mapDesc': 'Kullanıcıların etkileşimli olarak il veya ilçe seçerek otomatik anahtar kelimeler üretebildiği web tabanlı proje.',
-    'recipeTitle': 'Recipe Buddy Mobil Uygulaması',
-    'recipeDesc': 'Mevcut malzemelere göre yapay zekâ kullanarak otomatik tarif önerileri sunan bir mobil uygulama.',
+        // Project descriptions
+        'cloudResumeTitle': 'Cloud Resume',
+        'cloudResumeDesc': 'OCI üzerinde barındırılan kişisel CV sitesi: API Gateway + Functions (benzersiz ve gizlilik dostu sayaç), Object Storage, Notifications + GitHub Actions ile günlük e‑posta.',
+        'sahibindenTitle': 'Sahibinden API Entegrasyonu',
+        'sahibindenDesc': 'Ürün yönetimi, fiyat hesaplama, sipariş oluşturma ve durum güncellemelerini otomatikleştiren bir backend entegrasyon projesi.',
+        'mapTitle': 'Etkileşimli Türkiye Haritası ile Anahtar Kelime Üretimi',
+        'mapDesc': 'Kullanıcıların etkileşimli olarak il veya ilçe seçerek otomatik anahtar kelimeler üretebildiği web tabanlı proje.',
+        'recipeTitle': 'Recipe Buddy Mobil Uygulaması',
+        'recipeDesc': 'Mevcut malzemelere göre yapay zekâ kullanarak otomatik tarif önerileri sunan bir mobil uygulama.',
         //Languages
         'languages': 'Diller',
         'turkish': 'Türkçe',
@@ -134,7 +141,14 @@ const translations = {
         'watExp': 'Amerika Birleşik Devletleri\'nde Work and Travel Programı (10 ay)',
         // Certificates
         'certificates': 'Sertifikalar',
-        'viewCert': 'Sertifikayı Görüntüle',
+    'viewCert': 'Sertifikayı Görüntüle',
+    // Modal — Cloud Resume
+    'details': 'Detaylar',
+    'cloudModalTitle': 'Cloud Resume — Detaylar',
+    'cloudModalP1': 'Gizlilik dostu analiz: Object Storage ile toplam ve benzersiz ziyaretçi, ETag ile güvenli artırım.',
+    'cloudModalP2': 'Sunucusuz yapı: API Gateway + Functions (Python), Notifications + GitHub Actions ile günlük rapor.',
+    'cloudModalP3': 'Frontend: iki dilli (TR/EN), Tailwind, reklam engelleyicilere takılmayan sayaç ucu.',
+    'cloudModalCTA': 'GitHub’da Görüntüle',
 
         //footer
         'footer': 'Tasarım & Geliştirme: Yunus Ergül'

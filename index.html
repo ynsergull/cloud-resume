@@ -58,7 +58,7 @@
         <a href="https://github.com/ynsergull" class="social-link text-slate-400 transition-all duration-300">
           <i class="fa-brands fa-github text-2xl"></i>
         </a>
-        <a href="https://linkedin.com/in/ynsergull" class="social-link text-slate-400 transition-all duration-300">
+        <a href="https://linkedin.com/in/yunusergul7" class="social-link text-slate-400 transition-all duration-300">
           <i class="fa-brands fa-linkedin-in text-2xl"></i>
         </a>
         <a href="mailto:yunus.ergul7@outlook.com" class="social-link text-slate-400 transition-all duration-300">
@@ -80,35 +80,7 @@
     <a href="#certificates" class="nav-link relative text-light-text font-medium text-sm" data-i18n="certificates">Certificates</a>
   </nav>
 </div>
-<!-- Mobile Bottom Navigation - YENİ EKLENEN KISIM -->
-<div class="nav-container lg:hidden">
-  <nav class="horizontal-nav">
-    <a href="#about" class="nav-link text-light-text" data-i18n="about">
-      <i class="fa-solid fa-user"></i>
-      <span>About</span>
-    </a>
-    <a href="#experience" class="nav-link text-light-text" data-i18n="experience">
-      <i class="fa-solid fa-briefcase"></i>
-      <span>Experience</span>
-    </a>
-    <a href="#projects" class="nav-link text-light-text" data-i18n="projects">
-      <i class="fa-solid fa-code"></i>
-      <span>Projects</span>
-    </a>
-    <a href="#skills" class="nav-link text-light-text" data-i18n="skills">
-      <i class="fa-solid fa-gears"></i>
-      <span>Skills</span>
-    </a>
-    <a href="#education" class="nav-link text-light-text" data-i18n="education">
-      <i class="fa-solid fa-graduation-cap"></i>
-      <span>Education</span>
-    </a>
-    <a href="#certificates" class="nav-link text-light-text" data-i18n="certificates">
-      <i class="fa-solid fa-award"></i>
-      <span>Certificates</span>
-    </a>
-  </nav>
-</div>
+
 
   <!-- Main Content -->
   <div class="max-w-4xl mx-auto px-5 py-20 lg:py-32 lg:px-0 main-content">
@@ -134,21 +106,24 @@
             <i class="fa-solid fa-phone text-accent mr-2"></i>
             <span>+905313084538</span>
           </div>
-          <!-- Visitor counter UI -->
           <div class="flex items-center">
-            <i class="fa-solid fa-eye text-accent mr-2"></i>
-            <span class="mr-1">Visitors:</span>
-            <span id="visitor-count">-</span>
-            <span class="mx-2 text-slate-600">|</span>
-            <span class="mr-1">Unique:</span>
-            <span id="unique-count">-</span>
+            <a href="https://github.com/ynsergull" target="_blank" rel="noopener" class="flex items-center text-light-text hover:text-accent transition-colors">
+              <i class="fa-brands fa-github text-accent mr-2"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+          <div class="flex items-center">
+            <a href="https://linkedin.com/in/yunusergul7" target="_blank" rel="noopener" class="flex items-center text-light-text hover:text-accent transition-colors">
+              <i class="fa-brands fa-linkedin-in text-accent mr-2"></i>
+              <span>LinkedIn</span>
+            </a>
           </div>
         </div>
-
-        <a href="mailto:yunus.ergul7@outlook.com" class="inline-block border border-accent text-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-medium" data-i18n="getInTouch">
-          Get In Touch
-        </a>
       </div>
+
+      <a href="mailto:yunus.ergul7@outlook.com" class="inline-block border border-accent text-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-medium" data-i18n="getInTouch">
+        Get In Touch
+      </a>
     </section>
 
     <!-- Experience Section -->
@@ -459,6 +434,16 @@
         <h2 class="text-3xl font-bold text-light-text mb-12 section-title" data-i18n="certificates">Certificates</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
+          <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=82EEB7090EE8378744A5697CF025D367FD55C8807D67A7F6261F2B268B9FBD89" target="_blank" rel="noopener" class="block bg-card-bg rounded-xl p-6 hover:bg-white/5 hover:scale-[1.01] transition">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold text-light-text mb-1" data-i18n="cert1Title">Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h3>
+              </div>
+              <i class="fa-solid fa-award text-accent text-2xl" style="padding-left: 3px;"></i>
+            </div>
+            <div class="mt-4 text-accent text-sm" data-i18n="viewCert">View certificate</div>
+          </a>
+
           <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=5B86E515723E3F41F1DABCD339BF9E890E1622AF4E1D82F74220EA7271AFF85E" target="_blank" rel="noopener" class="block bg-card-bg rounded-xl p-6 hover:bg-white/5 hover:scale-[1.01] transition">
             <div class="flex items-start justify-between">
               <div>
@@ -483,6 +468,44 @@
     </section>
   </div>
 
+<div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" style="display: none;">
+  <div class="relative bg-card-bg rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <button id="modal-close" class="absolute top-4 right-4 text-light-text hover:text-accent transition-colors z-10">
+      <i class="fa-solid fa-xmark text-2xl"></i>
+    </button>
+    
+    <div class="p-8">
+      <div class="flex justify-between items-start mb-6">
+        <h3 id="modal-title" class="text-2xl font-bold text-light-text"></h3>
+      </div>
+      
+      <div id="modal-content" class="text-medium-text mb-6">
+        <!-- İçerik JavaScript ile doldurulacak -->
+      </div>
+      
+      <div id="modal-skills" class="flex flex-wrap gap-2 mb-6">
+        <!-- Yetenekler JavaScript ile doldurulacak -->
+      </div>
+      
+      <div class="border-t border-slate-700 pt-6">
+        <h4 class="text-lg font-semibold text-light-text mb-3">Proje Detayları</h4>
+        <div id="modal-details" class="text-medium-text mb-6">
+          <!-- Ek detaylar JavaScript ile doldurulacak -->
+        </div>
+        
+        <!-- GitHub Butonu - YENİ EKLENDİ -->
+        <div id="github-section" class="mt-6 pt-6 border-t border-slate-700" style="display: none;">
+          <h4 class="text-lg font-semibold text-light-text mb-3">Proje Linkleri</h4>
+          <a id="modal-github-btn" href="#" target="_blank" class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-light-text px-4 py-2 rounded-lg transition-colors">
+            <i class="fa-brands fa-github"></i>
+            GitHub'da Görüntüle
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Footer -->
   <footer class="py-8 text-center text-dark-text border-t border-slate-800">
     <div class="max-w-4xl mx-auto px-5">
@@ -500,8 +523,18 @@
       </div>
     </div>
   </footer>
+                        <!-- Visitor counter (subtle, fixed in bottom-right) -->
+            <div class="fixed bottom-3 right-3 z-20 text-[11px] text-slate-400 opacity-40 hover:opacity-90 transition-opacity bg-card-bg/70 backdrop-blur-sm border border-slate-700 rounded-full px-2.5 py-1 shadow-sm flex items-center">
+            <i class="fa-solid fa-eye text-accent mr-1"></i>
+            <span class="mr-1">V:</span>
+            <span id="visitor-count-bottom">-</span>
+            <span class="mx-2 text-slate-600">·</span>
+            <span class="mr-1">U:</span>
+            <span id="unique-count-bottom">-</span>
+            </div>
 
   <script src="js/translations.js" defer></script>
+  <script src="js/projects-data.js" defer></script>
   <script src="js/script.js?v=20250816.2" defer></script>
 </body>
 </html>
